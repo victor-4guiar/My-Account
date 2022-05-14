@@ -11,19 +11,22 @@
 			<h1>Maker Page</h1>
 		</header>
 		<section>
-			<div>
+			<div id="main">
 				<p>What do you want me to call you?</p>
 				<input type="text" value="My name is..." id="name" name="name">
 				<p>What would your description be?</p>
 				<input type="text" value="My description is..." id="description" name="description">
 				<p>What's your gender?</p>
-				<input type="radio" name="radgen" id="mas" checked>
-				<label for="mas">Masculine</label>
-				<input type="radio" name="radgen" id="fem">
-				<label for="fem">Feminine</label>
-				<input type="radio" name="radgen" id="oth">
-				<label for="oth">Other</label>
+				<div id="conjunt">
+					<input type="radio" name="radgen" id="mas" checked>
+					<label for="mas">Masculine</label>
+					<input type="radio" name="radgen" id="fem">
+					<label for="fem">Feminine</label>
+					<input type="radio" onclick="irmech()" name="radgen" id="oth">
+					<label for="oth">Other</label>
+				</div>
 			</div>
 		</section>
+		<script src="../index.js"></script>
 	</body>
 </html>
