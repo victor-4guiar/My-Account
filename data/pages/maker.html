@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compative" content="ie=edge">
+		<link rel="stylesheet" href="../style.css">
 		<title>Maker Page</title>
 	</head>
 	<body>
@@ -13,19 +14,20 @@
 		<section>
 			<div id="main">
 				<p>What do you want me to call you?</p>
-				<input type="text" value="My name is..." id="name" name="name">
-				<p>What would your description be?</p>
-				<input type="text" value="My description is..." id="description" name="description">
+				<input type="text" maxlength="20" value="My name is..." id="name" name="name" onclick="nameclear()">
+				<p>Describe yourself</p>
+				<textarea type="text" maxlength="150" value="My description is..." id="description" name="description" onclick="descriptionclear()"></textarea>
 				<p>What's your gender?</p>
 				<div id="conjunt">
-					<input type="radio" name="radgen" id="mas" checked>
-					<label for="mas">Masculine</label>
-					<input type="radio" name="radgen" id="fem">
-					<label for="fem">Feminine</label>
+					<input type="radio" name="radgen" id="mas" onclick="moditichma()" checked>
+					<label for="mas" class="msg">Masculine</label>
+					<input type="radio" name="radgen" id="fem" onclick="moditichfe()">
+					<label for="fem" class="msg">Feminine</label>
 					<input type="radio" onclick="irmech()" name="radgen" id="oth">
-					<label for="oth">Other</label>
+					<label for="oth" class="msg">Other</label>
 				</div>
 			</div>
+			<input type="button" value="Finished" id="terminad" onclick="calculardados()">
 		</section>
 		<script src="../index.js"></script>
 	</body>

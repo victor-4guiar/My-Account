@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+:root{
+	--color00-gray-tone: #B4B5B6;
+	--color01-gray-tone: #898A8B;
+	--color02-gray-tone: #525456;
+	--color03-gray-tone: #525456;
+	--color04-gray-tone: #35383A;
+	
+	--color00-blue-tone: #7EB3B8;
+	--color01-blue-tone: #4C8D93;
+	--color02-blue-tone: #2E767D;
+	--color03-blue-tone: #1B636A;
+	--color04-blue-tone: #094C52;
+	
+	--color00-pink-tone: #DB95BD;
+	--color01-pink-tone: #C26399;
+	--color02-pink-tone: #A43C77;
+	--color03-pink-tone: #8B225D;
+	--color04-pink-tone: #6C0B42;
+	--general-font: Arial, Helvetica, Verdana,sans-serif;
+}
+
+body{
+	background-color: var(--color00-gray-tone);
+	font-family: var(--general-font);
+	color: #1A1A1A;
+}
+
+header{
+	text-align: center;
+	margin: 20px 0px 20px 0px;
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+section{
+	background-color: white;
+	padding: 10px;
+	max-width: 600px;
+	margin: 10px auto 10px auto;
+	border-radius: 5px;
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+}
+
+section p, input{
+	margin: 10px 5px 0px 5px;
+}
+
+section input#name, textarea#description, input#othergen{
+	background-color: var(--color00-gray-tone);
+	padding: 5px;
+	border: none;
+	color: #1A1A1A;
+	font-weight: bold;
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+section textarea#description{
+	max-width: 400px;
+	max-height: 200px;
+	margin-top: 5px;
+	min-width: 200px;
+	min-height: 50px;
+}
+
+section label.msg{
+	margin: 2px 0px 2px 2px;
+}
+
+section input#cancelar, input#terminad{
+	padding: 5px;
+	border: none;
+	border-radius: 2px;
+	color: #1A1A1A;
+	font-weight: bold;
+	background-color: var(--color00-gray-tone);
+	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
