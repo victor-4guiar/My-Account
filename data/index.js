@@ -2,6 +2,15 @@ function irmech(){ // Isso irá limpar todas as interações de gênero e instal
 	var conjunt = document.getElementById('conjunt');
 	var radgen = document.getElementsByName('radgen');	
 	var main = document.getElementById('main');
+	var vectorColor1 = document.getElementById('name'); // Manipulação das paletas.
+	var vectorColor2 = document.getElementById('description');
+	var vectorColor3 = document.getElementById('terminad');
+	var principal = document.getElementById('principal');
+	vectorColor1.style.backgroundColor = 'var(--color01-yellow-tone)';
+	vectorColor2.style.backgroundColor = 'var(--color01-yellow-tone)';
+	vectorColor3.style.backgroundColor = 'var(--color01-yellow-tone)';
+	document.body.style.backgroundColor = 'var(--color02-yellow-tone)';
+	principal.style.color = 'var(--color05-yellow-tone)';
 	if (radgen[2].checked){ // Verificação para ver se a pessoa clicou em "Other".
 		conjunt.remove(); // Limpar todos os elementos do Conjunto, inclusive ele próprio.
 		var conjunt = document.createElement('div'); // Criar o conjunto novamente, só que com os dados de adicionar seu gênero por texto.
@@ -11,20 +20,38 @@ function irmech(){ // Isso irá limpar todas as interações de gênero e instal
 		back.setAttribute('value', 'Cancel');
 		back.setAttribute('onclick', 'canceloth()');
 		back.setAttribute('id', 'cancelar');
+		back.style.backgroundColor = 'var(--color01-yellow-tone)';
 		var othergen = document.createElement('input'); // Criar a área onde podes escrever seu gênero.
 		othergen.setAttribute('type', 'text');
 		othergen.setAttribute('value', 'My gender is...');
 		othergen.setAttribute('name', 'othergen');
 		othergen.setAttribute('id', 'othergen');
 		othergen.setAttribute('onclick', 'othclear()');
+		othergen.style.backgroundColor = 'var(--color01-yellow-tone)';
+		var pront = document.createElement('input'); // Criar o botão para quando estiver tudo pronto.
+		pront.setAttribute('type', 'button');
+		pront.setAttribute('value', 'Finished');
+		pront.setAttribute('id', 'terminad');
+		pront.setAttribute('onclick', 'calculardados2()');
+		pront.style.backgroundColor = 'var(--color01-yellow-tone)';
 		main.appendChild(conjunt); // Adicionar esses três componentes no Documento (eles estavam criados apenas na memória, agora isso está os colocando na parte visual).
 		conjunt.appendChild(back);
 		conjunt.appendChild(othergen);
+		conjunt.appendChild(pront)
 	};
 };
 
 function canceloth(){ // Se a pessoa apertar em cancelar, irá executar essa função, que deixará as opções de gênero como estava antes.
-	var conjunt = document.getElementById('conjunt');
+	var conjunt = document.getElementById('conjunt'); // Manipulação das paletas.
+	var vectorColor1 = document.getElementById('name');
+	var vectorColor2 = document.getElementById('description');
+	var vectorColor3 = document.getElementById('terminad');
+	var principal = document.getElementById('principal');
+	vectorColor1.style.backgroundColor = 'var(--color00-gray-tone)';
+	vectorColor2.style.backgroundColor = 'var(--color00-gray-tone)';
+	vectorColor3.style.backgroundColor = 'var(--color00-gray-tone)';
+	document.body.style.backgroundColor = 'var(--color02-gray-tone)';
+	principal.style.color = '#1A1A1A';
 	conjunt.remove(); // Limpar todos os elementos do conjunto, inclusive ele próprio.
 	var conjunt = document.createElement('div'); // Criar o conjunto novamente, só que com os dados de adicionar seu gênero por texto.
 	conjunt.setAttribute('id', 'conjunt');
@@ -52,6 +79,11 @@ function canceloth(){ // Se a pessoa apertar em cancelar, irá executar essa fun
 	var lacheckot = document.createElement('label');
 	lacheckot.setAttribute('for', 'oth');
 	lacheckot.setAttribute('class', 'msg');
+	var pront = document.createElement('input'); // Criar o botão para quando estiver tudo pronto.
+	pront.setAttribute('type', 'button');
+	pront.setAttribute('value', 'Finished');
+	pront.setAttribute('id', 'terminad');
+	pront.setAttribute('onclick', 'calculardados()');
 	main.appendChild(conjunt); // Adicionar os componentes na parte visual.
 	conjunt.appendChild(checkma);
 	conjunt.appendChild(lacheckma);
@@ -62,6 +94,7 @@ function canceloth(){ // Se a pessoa apertar em cancelar, irá executar essa fun
 	conjunt.appendChild(checkot);
 	conjunt.appendChild(lacheckot);
 	lacheckot.innerHTML = ' Other ';
+	conjunt.appendChild(pront)
 };
 
 function nameclear(){
@@ -79,10 +112,79 @@ function othclear(){
 	otr.value = '';
 }
 
-function moditichma(){
-	document.body.style.backgroundColor = 'var(--color00-pink-tone)';
+function moditichma(){ // Manipulação das paletas.
+	var vectorColor1 = document.getElementById('name');
+	var vectorColor2 = document.getElementById('description');
+	var vectorColor3 = document.getElementById('terminad');
+	var principal = document.getElementById('principal');
+	vectorColor1.style.backgroundColor = 'var(--color00-blue-tone)';
+	vectorColor2.style.backgroundColor = 'var(--color00-blue-tone)';
+	vectorColor3.style.backgroundColor = 'var(--color00-blue-tone)';
+	principal.style.color = 'var(--color05-blue-tone)';
+	document.body.style.backgroundColor = 'var(--color02-blue-tone)';
 }
 
-function moditichfe(){
-	document.body.style.backgroundColor = 'var(--color00-blue-tone)';
+function moditichfe(){ // Manipulação das paletas.
+	var vectorColor1 = document.getElementById('name');
+	var vectorColor2 = document.getElementById('description');
+	var vectorColor3 = document.getElementById('terminad');
+	var principal = document.getElementById('principal');
+	vectorColor1.style.backgroundColor = 'var(--color00-pink-tone)';
+	vectorColor2.style.backgroundColor = 'var(--color00-pink-tone)';
+	vectorColor3.style.backgroundColor = 'var(--color00-pink-tone)';
+	principal.style.color = 'var(--color05-pink-tone)';
+	document.body.style.backgroundColor = 'var(--color02-pink-tone)';
+}
+
+function calculardados(){
+	var name = document.getElementById('name');
+	var description = document.getElementById('description');
+	var radgen = document.getElementsByName('radgen');
+	var main = document.getElementById('main');
+	var lall = document.getElementById('lall');
+	if (radgen[0].checked){
+		var gender = 'Masculine';
+			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+				window.alert('[ERROR] Please check the data and try again.');
+			}else{
+				main.remove();
+				var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
+				main.setAttribute('id', 'main');
+				lall.appendChild(main);
+				main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+			}
+	}else if (radgen[1].checked){
+		var gender = 'Feminine';
+			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+				window.alert('[ERROR] Please check the data and try again.');
+			}else{
+				main.remove();
+				var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
+				main.setAttribute('id', 'main');
+				lall.appendChild(main);
+				main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+			}
+	}else{
+		window.alert('[ERROR] Please check the data and try again.');
+	}
+}
+
+function calculardados2(){
+	var name = document.getElementById('name');
+	var description = document.getElementById('description');
+	var main = document.getElementById('main');
+	var lall = document.getElementById('lall');
+	var othergen = document.getElementById('othergen');
+	var gender = othergen.value;
+	if (gender == ' ' || gender == 'My gender is...' || gender.value == 'undefined' || gender == ''){
+		window.alert('[ERROR] Please check the data and try again.');
+	}else if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+		window.alert('[ERROR] Please check the data and try again.');
+	}else{
+		main.remove();
+		var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
+		main.setAttribute('id', 'main');
+		lall.appendChild(main);
+		main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+	}
 }

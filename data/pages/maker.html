@@ -9,9 +9,9 @@
 	</head>
 	<body>
 		<header>
-			<h1>Maker Page</h1>
+			<h1 id="principal">Maker Page</h1>
 		</header>
-		<section>
+		<section id="lall">
 			<div id="main">
 				<p>What do you want me to call you?</p>
 				<input type="text" maxlength="20" value="My name is..." id="name" name="name" onclick="nameclear()">
@@ -19,15 +19,15 @@
 				<textarea type="text" maxlength="150" value="My description is..." id="description" name="description" onclick="descriptionclear()"></textarea>
 				<p>What's your gender?</p>
 				<div id="conjunt">
-					<input type="radio" name="radgen" id="mas" onclick="moditichma()" checked>
+					<input type="radio" name="radgen" id="mas" onclick="moditichma()">
 					<label for="mas" class="msg">Masculine</label>
 					<input type="radio" name="radgen" id="fem" onclick="moditichfe()">
 					<label for="fem" class="msg">Feminine</label>
 					<input type="radio" onclick="irmech()" name="radgen" id="oth">
 					<label for="oth" class="msg">Other</label>
+					<input type="button" value="Finished" id="terminad" onclick="calculardados()">
 				</div>
 			</div>
-			<input type="button" value="Finished" id="terminad" onclick="calculardados()">
 		</section>
 		<script src="../index.js"></script>
 	</body>

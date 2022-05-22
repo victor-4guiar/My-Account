@@ -10,6 +10,12 @@
 	--color03-gray-tone: #525456;
 	--color04-gray-tone: #35383A;
 	
+	--color00-yellow-tone: #FFF7AA;
+	--color01-yellow-tone: #D4CA6A;
+	--color02-yellow-tone: #AA9F39;
+	--color03-yellow-tone: #807515;
+	--color04-yellow-tone: #554D00;
+	
 	--color00-blue-tone: #7EB3B8;
 	--color01-blue-tone: #4C8D93;
 	--color02-blue-tone: #2E767D;
@@ -25,7 +31,7 @@
 }
 
 body{
-	background-color: var(--color00-gray-tone);
+	background-color: var(--color01-gray-tone);
 	font-family: var(--general-font);
 	color: #1A1A1A;
 }
@@ -41,12 +47,16 @@ section{
 	padding: 10px;
 	max-width: 600px;
 	margin: 10px auto 10px auto;
-	border-radius: 5px;
-	box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+	border-radius: 10px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 section p, input{
 	margin: 10px 5px 0px 5px;
+}
+
+section input#terminad{
+	display: block;
 }
 
 section input#name, textarea#description, input#othergen{
