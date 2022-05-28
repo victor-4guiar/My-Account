@@ -50,7 +50,7 @@ function canceloth(){ // Se a pessoa apertar em cancelar, irá executar essa fun
 	vectorColor1.style.backgroundColor = 'var(--color00-gray-tone)';
 	vectorColor2.style.backgroundColor = 'var(--color00-gray-tone)';
 	vectorColor3.style.backgroundColor = 'var(--color00-gray-tone)';
-	document.body.style.backgroundColor = 'var(--color02-gray-tone)';
+	document.body.style.backgroundColor = 'var(--color01-gray-tone)';
 	principal.style.color = '#1A1A1A';
 	conjunt.remove(); // Limpar todos os elementos do conjunto, inclusive ele próprio.
 	var conjunt = document.createElement('div'); // Criar o conjunto novamente, só que com os dados de adicionar seu gênero por texto.
@@ -138,31 +138,20 @@ function moditichfe(){ // Manipulação das paletas.
 
 function calculardados(){
 	var name = document.getElementById('name');
-	var description = document.getElementById('description');
 	var radgen = document.getElementsByName('radgen');
-	var main = document.getElementById('main');
-	var lall = document.getElementById('lall');
 	if (radgen[0].checked){
 		var gender = 'Masculine';
 			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
 				window.alert('[ERROR] Please check the data and try again.');
 			}else{
-				main.remove();
-				var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
-				main.setAttribute('id', 'main');
-				lall.appendChild(main);
-				main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+				preparar();
 			}
 	}else if (radgen[1].checked){
 		var gender = 'Feminine';
 			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
 				window.alert('[ERROR] Please check the data and try again.');
 			}else{
-				main.remove();
-				var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
-				main.setAttribute('id', 'main');
-				lall.appendChild(main);
-				main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+				preparar();
 			}
 	}else{
 		window.alert('[ERROR] Please check the data and try again.');
@@ -171,20 +160,31 @@ function calculardados(){
 
 function calculardados2(){
 	var name = document.getElementById('name');
-	var description = document.getElementById('description');
-	var main = document.getElementById('main');
-	var lall = document.getElementById('lall');
-	var othergen = document.getElementById('othergen');
 	var gender = othergen.value;
 	if (gender == ' ' || gender == 'My gender is...' || gender.value == 'undefined' || gender == ''){
 		window.alert('[ERROR] Please check the data and try again.');
 	}else if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
 		window.alert('[ERROR] Please check the data and try again.');
 	}else{
-		main.remove();
-		var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
-		main.setAttribute('id', 'main');
-		lall.appendChild(main);
-		main.innerHTML = `Detectamos ${name.value}, ${gender}, ${description.value}!`;
+		preparar();
 	}
+}
+
+function preparar(){
+	var description = document.getElementById('description');
+	var main = document.getElementById('main');
+	var lall = document.getElementById('lall');
+	var othergen = document.getElementById('othergen');
+	
+	main.remove();
+	var go = document.createElement('a');
+	var about = document.createTextNode("Go");
+	var main = document.createElement('div'); // Criar o main novamente, só que com os dados de adicionar seu gênero por texto.
+	main.setAttribute('id', 'main');
+	lall.appendChild(main);
+	lall.appendChild(go);
+	go.setAttribute('id', 'fizda');
+	go.appendChild(about);
+	go.href = "result.html";
+	main.innerHTML = `<p id="tatch">Are you ready?!</p>`;
 }
