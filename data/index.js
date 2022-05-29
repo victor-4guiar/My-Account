@@ -137,18 +137,21 @@ function moditichfe(){ // Manipulação das paletas.
 }
 
 function calculardados(){
-	var name = document.getElementById('name');
+	var nd = document.getElementById('name');
+	var dc = document.getElementById('description');
+	localStorage.setItem('description', dc.value);
+	localStorage.setItem('name', nd.value);
 	var radgen = document.getElementsByName('radgen');
 	if (radgen[0].checked){
-		var gender = 'Masculine';
-			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+		localStorage.setItem('gender', 'Masculine');
+			if (localStorage.getItem('name') == ' ' || localStorage.getItem('name') == 'My name is...' || localStorage.getItem('name') == 'undefined' || localStorage.getItem('name') == ''){
 				window.alert('[ERROR] Please check the data and try again.');
 			}else{
 				preparar();
 			}
 	}else if (radgen[1].checked){
-		var gender = 'Feminine';
-			if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+		localStorage.setItem('gender', 'Feminine');
+			if (localStorage.getItem('name') == ' ' || localStorage.getItem('name') == 'My name is...' || localStorage.getItem('name') == 'undefined' || localStorage.getItem('name') == ''){
 				window.alert('[ERROR] Please check the data and try again.');
 			}else{
 				preparar();
@@ -159,11 +162,14 @@ function calculardados(){
 }
 
 function calculardados2(){
-	var name = document.getElementById('name');
-	var gender = othergen.value;
-	if (gender == ' ' || gender == 'My gender is...' || gender.value == 'undefined' || gender == ''){
+	var nd = document.getElementById('name');
+	var dc = document.getElementById('description');
+	localStorage.setItem('description', dc.value);
+	localStorage.setItem('name', nd.value);
+	localStorage.setItem('gender', othergen.value);
+	if (localStorage.getItem('gender') == ' ' || localStorage.getItem('gender') == 'My gender is...' || localStorage.getItem('gender') == 'undefined' || localStorage.getItem('gender') == ''){
 		window.alert('[ERROR] Please check the data and try again.');
-	}else if (name.value == ' ' || name.value == 'My name is...' || name.value == 'undefined' || name.value == ''){
+	}else if (localStorage.getItem('name') == ' ' || localStorage.getItem('name') == 'My name is...' || localStorage.getItem('name') == 'undefined' || localStorage.getItem('name') == ''){
 		window.alert('[ERROR] Please check the data and try again.');
 	}else{
 		preparar();
@@ -187,4 +193,12 @@ function preparar(){
 	go.appendChild(about);
 	go.href = "result.html";
 	main.innerHTML = `<p id="tatch">Are you ready?!</p>`;
+	if (localStorage.getItem('gender') == 'Masculine'){
+		go.style.backgroundColor = 'var(--color00-blue-tone)';
+	}else if (localStorage.getItem('gender') == 'Feminine'){
+		go.style.backgroundColor = 'var(--color00-pink-tone)';
+	}else {
+		go.style.backgroundColor = 'var(--color01-yellow-tone)';
+	}
+	document.write(localStorage.getItem('description'));
 }
