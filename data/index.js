@@ -200,5 +200,4 @@ function preparar(){
 	}else {
 		go.style.backgroundColor = 'var(--color01-yellow-tone)';
 	}
-	document.write(localStorage.getItem('description'));
 }
