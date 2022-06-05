@@ -1,26 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="../style-r.css">
+		<link rel="shortcut icon" href="../favicon.ico">
 		<title id="title"></title>
 	</head>
-	<body>
+	<body onload="load()">
 		<header>
 			<h1>About Me</h1>
 		</header>
 		<main>
 			<div>
-				<img src="#" id="pfp" alt="Perfil Photo">
-				<h2 id="nicknam">Unnamed</h2>
+				<table class="nickpfp">
+					<tr>
+						<td><img src="#" id="pfp" alt="Perfil Photo"></td>
+						<td id="per"><h2 id="nicknam">Unnamed</h2></td>
+					</tr>
+				</table>
 			</div>
-			<div id="desc">
-				Waiting...
-			</div>
+			<div id="desc">Waiting...</div>
 		</main>
 		<footer>
-			<img src="../../images/hong_yu.png" alt="Hong Yu" width="80px"><p>Made by <strong><a href="#" rel="external" target="_blank">Hong Yu</a></strong></p>
+			<img src="../../images/hong_yu.png" alt="Hong Yu" width="80px"><p>Made by <strong><a href="https://github.com/victor-4guiar" rel="external" target="_blank">Hong Yu</a></strong></p>
 		</footer>
+		<script src="../index-r.js"></script>
 	</body>
 </html>
